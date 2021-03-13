@@ -1,18 +1,14 @@
 import './Nav.css';
 import React, { useEffect } from 'react';
 import $ from "jquery";
+import 'materialize-css/dist/js/materialize.js'
+
 
 export default props => {
 
-    useEffect(() => {
-        $(document).ready(function () {
-            $('.sidenav').sidenav();
-        });
-    })
-
     return (
         <>
-            <nav>
+            <nav className="grey darken-4">
                 <div className="nav-wrapper">
                     <ul class="left hide-on-med-and-down">
                         <li><a href="sass.html">Início</a></li>
