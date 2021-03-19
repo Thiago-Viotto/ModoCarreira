@@ -1,8 +1,6 @@
 import './Nav.css';
 import React, { useEffect } from 'react';
-import $ from "jquery";
 import 'materialize-css/dist/js/materialize.js'
-
 
 export default props => {
 
