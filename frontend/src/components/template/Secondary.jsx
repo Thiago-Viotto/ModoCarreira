@@ -10,7 +10,7 @@ export default props => {
                 <div class="row">
 
 
-                    <div class="col s12 m7">
+                    <div class="col s12 m11">
                         <div class="card small horizontal">
                             <div class="card-image">
                                 <img src="images/teste.png" alt="imagem da notícia secundária" />
@@ -25,7 +25,7 @@ export default props => {
                     </div>
 
 
-                    <div class="col s12 m7">
+                    <div class="col s12 m11">
                         <div class="card small horizontal">
                             <div class="card-image">
                                 <img src="images/teste.png" alt="imagem da notícia secundária" />
@@ -41,7 +41,7 @@ export default props => {
 
 
 
-                    <div class="col s12 m7">
+                    <div class="col s12 m11">
                         <div class="card small horizontal">
                             <div class="card-image">
                                 <img src="images/teste.png" alt="imagem da notícia secundária" />
