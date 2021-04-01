@@ -2,11 +2,7 @@ import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import React, { useEffect } from 'react';
-import Main from '../components/template/Main';
 import Nav from '../components/template/Nav';
-import Footer from '../components/template/Footer';
-import Secondary from '../components/template/Secondary';
-
 
 export default props => {
     useEffect(() => {
@@ -17,9 +13,6 @@ export default props => {
     return (
         < div className="app" >
             <Nav />
-            <Main />
-            <Secondary />
-            <Footer />
         </div >
     )
 }
