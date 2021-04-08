@@ -1,0 +1,18 @@
+#btnFormMain{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#btnFormMain button{
+    background-color: black;
+}
+
+#btnImage{
+    background-color: black;
+}
+
+#titleFormMain{
+    text-align: center;
+}

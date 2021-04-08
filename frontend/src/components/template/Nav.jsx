@@ -1,10 +1,9 @@
 import './Nav.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from 'react-router-dom';
 import 'materialize-css/dist/js/materialize.js'
 
@@ -25,10 +24,10 @@ export default props => {
                 </div>
             </nav>
             <ul class="sidenav" id="mobile-demo">
-                <li><Link to="/">Início</Link></li>
-                <li><Link to="/historic">História de Morais</Link></li>
-                <li><Link to="/createNews">Criar notícias</Link></li>
-                <li><Link to="/createHistoric">Criar histórico</Link></li>
+                <li><a href="/">Início</a></li>
+                <li><a href="/historic">História de Morais</a></li>
+                <li><a href="/createNews">Criar notícias</a></li>
+                <li><a href="/createHistoric">Criar histórico</a></li>
             </ul>
 
             <Switch>
