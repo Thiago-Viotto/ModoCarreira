@@ -1,5 +1,7 @@
-import './Main.css';
+import './Home.css';
 import React from 'react';
+import Footer from './Footer';
+import Secondary from './Secondary';
 
 export default props => {
 
@@ -30,6 +32,8 @@ export default props => {
 
                 </div>
             </main>
+            <Secondary />
+            <Footer />
         </>
     )
 }
