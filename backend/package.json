@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "json-server": "^0.16.3"
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "json-server": "^0.16.3",
+    "multer": "^1.4.2"
   },
   "scripts": {
-    "start": "json-server --watch db.json --port 3001"
+    "start": "json-server --watch db.json --port 3001",
+    "dev": "node server.js"
   },
   "keywords": [],
   "author": "",
