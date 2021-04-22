@@ -6,21 +6,19 @@ export default props => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
-    const [valueURLImg, setValueURLImg] = useState('');
+    let valueURLImg = '';
 
     const createNew = async () => {
         const data = new FormData()
         data.append('file', selectedFile);
-        console.log(selectedFile)
 
-        axios.post("http://localhost:8000/upload", data, {
-        }).then(res => { })
+        await axios.post("http://localhost:8000/upload", data, {
+        }).then(res => {
+            valueURLImg = `http://localhost:3000/images/${res.data.originalname}`
+         })
 
-        if (selectedFile.name !== null) {
-            setValueURLImg('http://localhost:3000/images/' + selectedFile.name)
-        }
 
-        await axios.post('http://localhost:3001/news', {
+        await axios.post('http://localhost:3001/main', {
             title: title,
             description: description,
             image: valueURLImg
