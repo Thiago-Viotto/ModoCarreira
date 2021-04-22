@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FormMain.css';
+import './FormNews.css';
 const axios = require('axios');
 
 export default props => {
@@ -34,6 +34,14 @@ export default props => {
             <div><h3 id="titleFormMain">Criar notícias</h3></div>
 
             <form class="col s12" action="#" encType="multipart/form-data">
+                <div class="switch">
+                    <label>
+                        Secundária
+                        <input type="checkbox" />
+                        <span class="lever"></span>
+                        Principal
+                    </label>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">subtitles</i>
