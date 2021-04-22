@@ -6,7 +6,9 @@ export default props => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
-    let valueURLImg = '';
+
+    let valueURLImg = ''; // used by image upload
+    let optionFormNew = 'secondary'; // is Secondary new by default
 
     const createNew = async () => {
         const data = new FormData()
@@ -15,10 +17,13 @@ export default props => {
         await axios.post("http://localhost:8000/upload", data, {
         }).then(res => {
             valueURLImg = `http://localhost:3000/images/${res.data.originalname}`
-         })
+        })
 
+        if (document.getElementById('checkboxForm').checked) { // is principal new
+            optionFormNew = 'main';
+        } 
 
-        await axios.post('http://localhost:3001/main', {
+        await axios.post(`http://localhost:3001/${optionFormNew}`, {
             title: title,
             description: description,
             image: valueURLImg
@@ -27,6 +32,7 @@ export default props => {
         }).catch(error => {
             console.log(error)
         })
+
     }
 
     return (
@@ -37,7 +43,7 @@ export default props => {
                 <div class="switch">
                     <label>
                         Secundária
-                        <input type="checkbox" />
+                        <input id="checkboxForm" type="checkbox" />
                         <span class="lever"></span>
                         Principal
                     </label>
