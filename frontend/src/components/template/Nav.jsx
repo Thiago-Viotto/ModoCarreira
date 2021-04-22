@@ -9,7 +9,7 @@ import 'materialize-css/dist/js/materialize.js'
 
 // Import components
 import Historic from './Historic';
-import FormMain from './FormMain';
+import FormNews from './FormNews';
 import CreateHistoric from './CreateHistoric';
 import Home from './Home';
 
@@ -35,7 +35,7 @@ export default props => {
                     <Historic />
                 </Route>
                 <Route path="/createNews">
-                    <FormMain />
+                    <FormNews />
                 </Route>
                 <Route path="/createHistoric">
                     <CreateHistoric />

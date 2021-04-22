@@ -1,30 +1,42 @@
 {
-    "news": [
-        {
-            "main": [
-                {
-                    "id": 1,
-                    "title": "Treino forte marca semana do tricolor de Morais",
-                    "description": "Visando a rodada do fim de semana, Morais treinou bastante a defesa e as jogadas pelas pontas. Todos os jogadores devem estar a disposição.",
-                    "image": ""
-                }
-            ]
-        },
-        {
-            "secondary": [
-                {
-                    "id": 3,
-                    "title": "Treino forte marca semana do tricolor de Morais",
-                    "description": "Visando a rodada do fim de semana, Morais treinou bastante a defesa e as jogadas pelas pontas. Todos os jogadores devem estar a disposição.",
-                    "image": ""
-                },
-                {
-                    "id": 4,
-                    "title": "Vitor Bueno de saída",
-                    "description": "Vitor Bueno está perto de sair do São Paulo na próxima janela.",
-                    "image": ""
-                }
-            ]
-        }
-    ]
+  "main": [
+    {
+      "id": 1,
+      "title": "Treino forte marca semana do tricolor de Morais",
+      "description": "Visando a rodada do fim de semana, Morais treinou bastante a defesa e as jogadas pelas pontas. Todos os jogadores devem estar a disposição.",
+      "image": ""
+    },
+    {
+      "title": "dsds",
+      "description": "fdfdddf",
+      "image": "http://localhost:3000/images/Sem título.png",
+      "id": 2
+    },
+    {
+      "title": "dsdsassasa",
+      "description": "fdfd",
+      "image": "http://localhost:3000/images/alejandro.jpg",
+      "id": 3
+    }
+  ],
+  "secondary": [
+    {
+      "id": 3,
+      "title": "Treino forte marca semana do tricolor de Morais",
+      "description": "Visando a rodada do fim de semana, Morais treinou bastante a defesa e as jogadas pelas pontas. Todos os jogadores devem estar a disposição.",
+      "image": ""
+    },
+    {
+      "title": "dsdsassasa",
+      "description": "dssd",
+      "image": "http://localhost:3000/images/Sem título.png",
+      "id": 4
+    },
+    {
+      "title": "dsds",
+      "description": "fdfdddf",
+      "image": "http://localhost:3000/images/Sem título.png",
+      "id": 5
+    }
+  ]
 }

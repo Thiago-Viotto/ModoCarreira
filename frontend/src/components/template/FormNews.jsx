@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
-import './FormMain.css';
+import './FormNews.css';
 const axios = require('axios');
 
 export default props => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
-    const [valueURLImg, setValueURLImg] = useState('');
+
+    let valueURLImg = ''; // used by image upload
+    let optionFormNew = 'secondary'; // is Secondary new by default
 
     const createNew = async () => {
         const data = new FormData()
         data.append('file', selectedFile);
-        console.log(selectedFile)
 
-        axios.post("http://localhost:8000/upload", data, {
-        }).then(res => { })
+        await axios.post("http://localhost:8000/upload", data, {
+        }).then(res => {
+            valueURLImg = `http://localhost:3000/images/${res.data.originalname}`
+        })
 
-        if (selectedFile.name !== null) {
-            setValueURLImg('http://localhost:3000/images/' + selectedFile.name)
-        }
+        if (document.getElementById('checkboxForm').checked) { // is principal new
+            optionFormNew = 'main';
+        } 
 
-        await axios.post('http://localhost:3001/news', {
+        await axios.post(`http://localhost:3001/${optionFormNew}`, {
             title: title,
             description: description,
             image: valueURLImg
@@ -29,6 +32,7 @@ export default props => {
         }).catch(error => {
             console.log(error)
         })
+
     }
 
     return (
@@ -36,6 +40,14 @@ export default props => {
             <div><h3 id="titleFormMain">Criar notícias</h3></div>
 
             <form class="col s12" action="#" encType="multipart/form-data">
+                <div class="switch">
+                    <label>
+                        Secundária
+                        <input id="checkboxForm" type="checkbox" />
+                        <span class="lever"></span>
+                        Principal
+                    </label>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">subtitles</i>
