@@ -30,7 +30,7 @@ export default props => {
             image: valueURLImg
         }).then(resp => {
             console.log(resp.data)
-            M.toast({html: `Notícia cadastrada com sucesso`, classes: 'rounded'})
+            M.toast({html: `Notícia cadastrada com sucesso`, classes: 'rounded', inDuration: 175, outDuration: 75})
         }).catch(error => {
             console.log(error)
         })
