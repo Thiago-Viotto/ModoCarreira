@@ -12,6 +12,7 @@ import Historic from './Historic';
 import FormNews from './FormNews';
 import CreateHistoric from './CreateHistoric';
 import Home from './Home';
+import ListNews from './ListNews';
 
 export default props => {
 
@@ -26,6 +27,7 @@ export default props => {
             <ul class="sidenav" id="mobile-demo">
                 <li><a href="/">Início</a></li>
                 <li><a href="/historic">História de Morais</a></li>
+                <li><a href="/listNews">Lista de notícias</a></li>
                 <li><a href="/createNews">Criar notícias</a></li>
                 <li><a href="/createHistoric">Criar histórico</a></li>
             </ul>
@@ -39,6 +41,9 @@ export default props => {
                 </Route>
                 <Route path="/createHistoric">
                     <CreateHistoric />
+                </Route>
+                <Route path="/listNews">
+                    <ListNews />
                 </Route>
                 <Route path="/">
                     <Home />
