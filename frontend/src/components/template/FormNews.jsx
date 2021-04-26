@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FormNews.css';
+import M from 'materialize-css';
 const axios = require('axios');
 
 export default props => {
@@ -29,6 +30,7 @@ export default props => {
             image: valueURLImg
         }).then(resp => {
             console.log(resp.data)
+            M.toast({html: `Notícia cadastrada com sucesso`, classes: 'rounded', inDuration: 175, outDuration: 75})
         }).catch(error => {
             console.log(error)
         })
