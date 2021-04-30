@@ -6,8 +6,10 @@ const axios = require('axios');
 export default props => {
     const [mainNews, setMainNews] = useState([]);
 
+    let optionFormNew = 'main'; // is main new by default
+
     useEffect(async () => {
-        await axios.get(`http://localhost:3001/main`)
+        await axios.get(`http://localhost:3001/${optionFormNew}`)
             .then(resp => {
                 console.log(resp.data)
                 setMainNews(resp.data)
@@ -17,9 +19,33 @@ export default props => {
             });
     }, [])
 
+    const setNews = async () => {
+        if (document.getElementById('checkboxForm').checked) { // is secondary new
+            optionFormNew = 'secondary';
+        } else {
+            optionFormNew = 'main';
+        }
+
+        await axios.get(`http://localhost:3001/${optionFormNew}`)
+            .then(resp => {
+                setMainNews(resp.data)
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
     return (
         <div class="row">
-            <div><h3 id="titleFormMain">Notícias Principais</h3></div>
+            <div><h3 id="titleFormMain">Notícias</h3></div>
+            <div class="switch">
+                <label>
+                    Principal
+                        <input id="checkboxForm" type="checkbox" onClick={setNews} />
+                    <span class="lever"></span>
+                    Secundária
+                    </label>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -35,8 +61,8 @@ export default props => {
                         <tr key={index}>
                             <td>{news.id}</td>
                             <td>{news.title}</td>
-                            <td style={{width: 100}}><button  class="btn waves-effect waves-light" type="submit">Editar</button></td>
-                            <td><button style={{backgroundColor: 'red'}} class="btn waves-effect waves-light" type="submit">Remover</button></td>
+                            <td style={{ width: 100 }}><button class="btn waves-effect waves-light" type="submit">Editar</button></td>
+                            <td><button style={{ backgroundColor: 'red' }} class="btn waves-effect waves-light" type="submit">Remover</button></td>
                         </tr>
                     ))}
                 </tbody>
