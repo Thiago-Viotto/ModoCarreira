@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import './FormNews.css';
 import M from 'materialize-css';
 const axios = require('axios');
@@ -7,6 +8,7 @@ export default props => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     let valueURLImg = ''; // used by image upload
     let optionFormNew = 'secondary'; // is Secondary new by default
@@ -22,7 +24,7 @@ export default props => {
 
         if (document.getElementById('checkboxForm').checked) { // is principal new
             optionFormNew = 'main';
-        } 
+        }
 
         await axios.post(`http://localhost:3001/${optionFormNew}`, {
             title: title,
@@ -30,18 +32,21 @@ export default props => {
             image: valueURLImg
         }).then(resp => {
             console.log(resp.data)
-            M.toast({html: `Notícia cadastrada com sucesso`, classes: 'rounded', inDuration: 175, outDuration: 75})
+            M.toast({ html: `Notícia cadastrada com sucesso`, classes: 'rounded', inDuration: 175, outDuration: 75 })
         }).catch(error => {
             console.log(error)
         })
+    };
 
-    }
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data))
+    };
 
     return (
         <div class="row">
             <div><h3 id="titleFormMain">Criar notícias</h3></div>
 
-            <form class="col s12" action="#" encType="multipart/form-data">
+            <form class="col s12" action="#" encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
                 <div class="switch">
                     <label>
                         Secundária
@@ -53,8 +58,9 @@ export default props => {
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">subtitles</i>
-                        <input id="icon_prefix" type="text" class="validate" value={title} onChange={e => setTitle(e.target.value)} ></input>
+                        <input id="icon_prefix" {...register("title", { required: true, maxLength: 30 })} type="text" class="validate" value={title} onChange={e => setTitle(e.target.value)} ></input>
                         <label for="icon_prefix">Título da notícia</label>
+                        {errors.title && <span class="helper-text" data-error="wrong" data-success="Válido" >Título inválido</span>}
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">assignment</i>
